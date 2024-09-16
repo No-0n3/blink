@@ -3,9 +3,12 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  commitlint:                
-    - name: lintcommit
-      uses: remarkablemark/commitlint@v1.0.0
+  commitlint:
+    runs-on: ubuntu-latest
+
+    steps:            
+      - name: lintcommit
+        uses: remarkablemark/commitlint@v1.0.0
 
   build:
     needs: commitlint
