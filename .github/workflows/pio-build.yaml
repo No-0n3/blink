@@ -6,7 +6,7 @@ jobs:
   commitlint:
     steps:
         - name: Commitlint
-          uses: .github/commitlint
+          uses: ./.github/commitlint
 
   build:
     needs: commitlint
