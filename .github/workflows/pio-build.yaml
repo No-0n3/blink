@@ -1,10 +1,15 @@
-name: Build firmware with PlatformIO
+name: CI
 
-  on: [push]
+  on: [push, pull_request]
 
   jobs:
-    needs: commitlint
+    commitlint:
+      steps:
+          - name: Commitlint
+            uses: .github/commitlint
+
     build:
+      needs: commitlint
       runs-on: ubuntu-latest
       strategy:
         matrix:
